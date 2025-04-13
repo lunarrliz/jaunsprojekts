@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!-- Cilnes nosaukums -->
+    <title>Reklāma</title>
+    <!-- CSS stila lapa -->
+    <style>
+        /* body krāsa un rāmis */
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            border: 2px solid black;
+            background-color: #b3ffb3;
+        }
+        /* pirmā container izmēri, rāmis, padding un margin */
+        .container {
+            max-width: 800px;
+            margin: 0 auto; 
+            border: 2px solid black;
+            border-top: 0;
+            border-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: white;
+        }
+        /* pirma header ramis, un padding */
+        .header {
+            border-bottom: 2px solid black;
+            padding-bottom: 20px;
+            padding-right: 20px;
+            padding-left: 20px;
+            padding-top: 0;
+        }
+        /* main header teksta nosacījumi, rāmis un padding/ margin */
+        .main-header {
+            padding-left: 20px;
+            text-align: left;
+            position: relative;
+            padding-right: 0; 
+            padding-top: 0;
+            margin-top: 0;
+            border-bottom: 2px solid black;
+            padding-bottom: 20px;
+        }
+        /* pirmās bildes izmēri, padding/margin un novietojums */
+        #bilde1 {
+            width: 350px;
+            height: auto;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 0;
+        }
+        /* div klases "start" novietojums un nosacījumi */
+        .start {
+            display: flex;
+            justify-content: flex-end;
+            gap: 40px;
+            text-align: right;
+        }
+        /* pirmā virsraksta izmērs un padding */
+        h1 {
+            padding-top: 20px;
+            padding-left: 20px;
+            font-size: 30px;
+            margin-top: 0;
+        }
+        /* otra virsraksta izmers un margin */
+        h2 {
+            font-size: 14px;
+            font-weight: normal;
+            padding-left: 20px;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        /* zaļās un zilās pogas izmērs, nosacījumi un padding/margin */
+        .poga {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-right: 10px;
+            margin-left: 20px;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+        /* zaļās pogas krāsa un rāmis */
+        .poga-zalais {
+            background-color: #99ff99;
+            color: black;
+            border: 2px solid #00b300; 
+        }
+        /* zilās pogas krāsa un rāmis */
+        .poga-zilais {
+            background-color: #b3ecff;
+            color: black;
+            border: 2px solid #0047b3;
+        }
+        /* zaļās pogas padding */
+        .zalais {
+            padding-left: 20px;
+        }
+        /* otrās bildes izmērs, novietojums un padding/margin */
+        #bilde2 {
+          width: 235px;
+          height: 200px;
+          position: left;
+          padding-right: 20px;  
+          top: 0;       
+          margin-top: 20px;  
+        }
+        /* trešās bildes izmērs, novietojums un padding/margin */
+        #bilde3 {
+          width: 235px;
+          height: 200px;
+          position: left;
+          padding-right: 20px;  
+          top: 0;       
+          margin-top: 20px; 
+         }
+        /* ceturtās bildes izmērs, novietojums un padding/margin */
+          #bilde4 {
+          width: 235px;
+          height: 200px;
+          position: left;
+          right: 20px;  
+          top: 0;       
+          margin-top: 20px;  
+        }
+        /* trešā header (ceļojumu piedāvājumu) padding un margin */
+        .second-header {
+            
+            padding: 20px;
+            padding-top: 0;
+            margin-top: 20px;
+        }
+        /* bilžu virsrakstu izmers, novietojums un padding/margin */
+        .bildesraksti {
+            display: flex;
+            gap: 50px;
+            text-align: left;
+            margin-left: 20px; 
+            font-size: 20px;
+            padding-top: 20px;
+            padding-left: 0;
+            margin-left: 0;
+        }
+        /* "Lasīt vairāk" teksta izmers, novietojums, nosacījumi un padding/margin */
+        .lasit { 
+            display: flex;
+            gap: 180px;
+            text-align: left;
+            margin-left: 50px; 
+            font-size: 15px;
+            padding-top: 20px;
+            padding-left: 100px;
+            padding-bottom: 30px;
+           
+        }
+        /* Reklāmas header teksta izmērs, fona bilde, rāmis un padding/margin */
+        .reklamas-header { 
+            
+            padding: 60px;
+            text-align: center;
+            margin-top: 0;
+            border-top: 2px solid black;
+            font-size: 35px;
+            background-image: url('https://images7.alphacoders.com/621/thumb-1920-621878.jpg');
+            border-bottom: 2px solid black;
+        }
+        /* otro zaļās un zilās pogu teksta izmērs, nosacījumi, rāmis un padding/margin */
+        .poga2 {
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-right: 10px;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+        }
+        /* otrās zaļās pogas krāsa un rāmis */
+        .poga2-zalais {
+            background-color: #99ff99;
+            color: black;
+            border: 2px solid #00b300; 
+        }
+        /* otrās zilās pogas krāsa un rāmis */
+        .poga2-zilais {
+            background-color: #b3ecff;
+            color: black;
+            border: 2px solid #0047b3;
+        }
+        /* bilžu slaida konteinera izmēri, novietojums un padding/margin */
+        .container2 {
+            max-width: 800px;
+            margin: 0 auto; 
+            border-bottom: 2px solid black;
+            border-top: 0;
+            padding: 0;
+            background-color: white; 
+            position: relative;
+            margin-bottom: 0;
+    
+        }
+        /* pirmās slaida bildes izmērs, novietojums un margin/padding */
+        #bilde5 {
+            position: center;
+            width: 800px;
+            margin: 0;
+            padding: 0;
+        }
+        /* pirmā aplīša izmēri, krāsa un kontūras krāsa un novietojums */
+        .aplitis1 {
+            position: absolute;
+            bottom: 10px; 
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            border: 3px solid black;
+        }
+        /* otrā aplīša izmēri, krāsa, kontūras krāsa un novietojums */
+        .aplitis2 {
+            position: absolute;
+            bottom: 10px; 
+            left: 54%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid black;
+            
+        }
+        /* trešā aplīša izmēri, krāsa, kontūras krāsa un novietojums */
+        .aplitis3 {
+            position: absolute;
+            bottom: 10px; 
+            left: 46%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid black;     
+        }
+        /* bultiņu izmērs un novietojums */
+        .bultina {
+         width: 0;
+         height: 0;
+         border-top: 15px solid transparent;
+         border-bottom: 15px solid transparent;
+         position: absolute;
+         }
+         /* labās bultiņas virziens un kontūras */
+       .labi {
+       border-left: 20px solid white;
+       }
+       /* kreisās bultiņas virziens un kontūras */
+      .kreisi {
+      border-right: 20px solid white;
+       }
+       /* precīzākas informācijas konteinera novietojums, izmērs, rāmis un padding/margin */
+       .container3 {
+            max-width: 800px;
+            margin: 0 auto; 
+            border: 2px solid black;
+            border-top: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: white;
+            padding-top: 30px;
+            margin-top:0;
+        }
+        /* trešā virsraksta izmērs un padding */
+       h3 {
+        padding-left:25px;
+        font-size: 30px;
+       }
+       /* paragrāfa padding un teksta atstarpes */
+       p {
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 30px;
+        padding-bottom: 0;
+        margin-bottom: 0;
+       }
+       /* uzskaitījuma list teksta atstarpes starp līnijām un padding */
+        ul {
+            line-height: 30px;
+            padding-top: 0;
+        }
+        /* ceturtā virsraksta teksta izmērs, teksta līniju atstarpes un padding */
+        h4 {
+            margin-top: 0;
+            font-size: 20px;
+            padding-top: 0;
+            padding-left: 20px;
+            line-height: 5px;
+        }
+        /* piektā virsraksta izmērs un novietojums */
+        h5 {
+            font-size: 20px;
+            text-align: center;
+        }
+        /* tabulas izmērs un rāmji */
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            margin-bottom: 20px;
+        }
+        /* tabulas šūnu rāmji, padding un novietojums */
+        th, td {
+            border: 2px solid black; 
+            padding: 8px; 
+            text-align: center;
+        }
+        /* gaiši zilā intervāla konteinera izmēri, krāsa, padding/margin un rāmis */
+        .containerkrasa1 {
+            width: 100%;
+            background-color: #b3ecff;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid #0047b3;
+            border-bottom: 1px solid #0047b3;
+        }
+        /* informācijas konteinera izmērs, novietojums, krāsa un padding/margin */
+        .containerinfo1 {
+            max-width: 800px;
+            border: 2px solid black;
+            border-top: 0;
+            border-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: white;
+            padding-top: 40px;
+            background-color: #b3ecff;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;  
+            position: relative;
+        }
+        /* kontaktinformācijas teksta novietojums, teksta atstarpes un padding */
+        .kontakti {
+            text-align: center;
+            padding-top: 20px;
+            line-height: 30px;
+        }
+        /* izvēlnes teksta novietojums */
+        .izvelne {
+            text-align: right;
+        }
+        /* kontaktinformācijas un izvēlnes teksta nosacījumi un padding */
+        .kontakti, .izvelne {
+            display: flex;
+            flex-direction: column; 
+            justify-content: center; 
+            padding: 10px;
+            width: 50%; 
+        }
+        /* tumši zilā intervāla konteinera izmēri, krāsa, rāmis un padding/margin */
+        .containerkrasa2 {
+            width: 100%;
+            background-color: #0099ff;
+            padding: 0;
+            margin: 0;
+            border-top: 1px solid #004d80;
+            border-bottom: 1px solid #004d80;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        /* autora teksta novietojums, teksta izmērs un padding/margin */
+        .autors {
+            max-width: 800px;
+            border: 2px solid black;
+            border-top: 1px solid black;
+            padding-left: 0;
+            padding-right: 0;
+            background-color: white;
+            padding-top: 2px;
+            padding-bottom: 0;
+            background-color: #0099ff;
+            justify-content: space-between;
+            margin: 0 auto;  
+            margin-top: 0;
+            margin-bottom: 0;
+            position: relative;
+        }
+        /* pēdējā virsraksta izmērs, novietojums un padding/margin */
+        h6 {
+            font-size: 20px;
+            font-weight: normal;
+            text-align: center;
+            padding: 0;
+            margin: 3px;
+        }
+    </style> 
+  </head>
+ <body>
+    <!-- pirmā konteinera sākums-->
+<div class="container">
+    <!-- pirmā header nosacījumi-->
+    <header class="header">
+        <div style="text-align: right;"> 
+            <!--"Meklēt pogas uzstādīšana"-->
+            <input type="text" placeholder="Meklēt" />
+            <button> 🔍</button>
+        </div> 
+        <!--Logo krāsa, izmērs un novietojums -->
+        <div style="text-align: left; font-size: 24px; color: #00b300; -webkit-text-stroke: 2px #00b300;">
+            <i>HikeAroundTheWorld</i>
+        </div>
+        <!-- Izvēlnes teksta uzstādīšana-->
+        <div class="start">
+            <div>Sākums</div>
+            <div>Par mums</div>
+            <div>Kontakti</div>
+        </div>
+        <!--Pirmā header beigas-->
+    </header>
+    <!--Galvenās informācijas header sākums-->
+    <div class="main-header">
+       
+        <!--Pirmās bildes id piesniegšana un pievienošana-->
+        <img id="bilde1" src="https://images.squarespace-cdn.com/content/v1/57b9b98a29687f1ef5c622df/1504131313563-U69BR7AJYDV5PWWQKJUB/trail+to+Rysy" />
+        
+        <!--Galvenā teksta ievietošana-->
+        <h1>Dodies pārgājiena ceļojumā!</h1>
+        <h2>Dodies plānotā ceļojumā! Mēs piedāvājam vairākus ceļojumus-<br>
+            dodies pārgājienos, izbaudi Eiropas dabu <br>
+             septiņu līdz desmit dienu garumā!<br>
+            Viesnīcas un transporta izmaksas iekļautas cenā!</h2><br>
+         
+            <!--Pirmo zālo un zilās pogas pievienošana-->
+        <button class="poga poga-zalais">Lasi vairāk!</button>
+        <button class="poga poga-zilais">Vēlos pieteikties!</button>
+    </div>
+
+    <!--Nākamo trīs bilžu pievienošana un id-->
+    <div class="second-header">
+        <img id="bilde2" src="https://live.staticflickr.com/65535/52983271193_58a9b5cd43_c.jpg" />
+        <img id="bilde3" src="https://www.nextleveloftravel.com/data/blog/8593/tourist-on-the-stubnerkogel-hiking-trail-near-bad-gastein-austria-photo-by-next-level-of-travel-29.jpg" />
+        <img id="bilde4" src="https://images.rove.me/w_1920,q_85/t3omxj9mmbseteqvtdro/austria-grossglockner-high-alpine-road.jpg" /> <br>
+
+        <!--Bilžu teksti-->
+        <div class="bildesraksti" >
+        <div> <b> Risija pārgājiena ceļojums </b> </div>
+        <div> <b>Badgašteinas ceļojums </b> </div>
+        <div> <b> Großgloknera ceļojums </b></div>
+      </div>
+      <!--"Lasīt vairāk tekstu pievienošana"-->
+      <div class="lasit" >
+        <div> <u> Lasīt vairāk </u></div>
+        <div> <u> Lasīt vairāk </u></div>
+        <div> <u> Lasīt vairāk </u></div>
+      </div>
+   </div>
+</div>
+     <!-- Reklāmas header pievienošana un otro zālās un zilās pogu pievienošana-->
+    <div class="reklamas-header">
+        <div style=" color: white; " >
+      <b> Piesakies plānotiem pārgājienu ceļojumiem tagad! </b>
+      </div>
+      <button class="poga2 poga2-zalais">Vēlos pirkt ceļojumu!</button>
+        <button class="poga2 poga2-zilais">Vēlos apskatīt precīzāk!</button>
+    </div>
+     <!--Nākamā konteinera sākums-->
+    <div class="container2">
+    
+        <!-- slaidu pirmās bildes ievietošana un id-->
+    <img id="bilde5" src="https://images.unsplash.com/photo-1511497584788-876760111969?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zm9yZXN0JTIwbW91bnRhaW58ZW58MHx8MHx8fDA%3D" >
+    
+    <!--Aplīšu pievienošana-->
+    <div class="aplitis1"></div>
+    <div class="aplitis2"></div>
+    <div class="aplitis3"></div>
+     
+    <!--Bultiņu pievienošana-->
+    <div class="bultina labi" style="top: 230px; left: 750px;"></div>
+    <div class="bultina kreisi" style="top: 230px; left: 20px;"></div>
+<!--Konteinera beigas-->
+</div>
+     
+    <!-- Precīzākas informācijas konteinera sākums un teksts-->
+    <div class="container3" >
+     <h3> Informācija: </h3>
+      <p> Ceļojums tiek organizēts 7-10 dienu garumā. <br> 
+        Ceļojumā tiek iekļauta viesnīca, dažādas pārgājienu takas, tuvumā un pa ceļam esošo pilsētu apciemošana un dažu kultūrvēsturisku objektu apskatīšana. <br>
+        <br>
+    </p>
+
+    <h4> Cenā netiek iekļauts: </h4>
+
+    <!-- Uzskaitījuma saraksta teksta ievade-->
+    <ul>
+        <li> Ēdināšanas izmaksas;</li>
+        <li> Medicīnas izmaksas;</li>
+        <li> Interneta ārvalstīs izmaksas; </li>
+        <li>  Papildus transporta izmaksas (transports, kas netiek iekļauts ceļojuma programmā); </li>
+        <li> Papildus ekipējuma izmaksas;</li>
+        <li> Papildus apskates vai izklaides parka objekti, kas nav iekļauti ceļojuma programmā.</li>
+    </ul>
+
+    <h5> Ceļojumu informācija: </h5>
+    <!--Tabulas ievade-->
+    <table>
+        <tr>
+            <th>Ceļojuma galamērķis</th>
+            <th>Aptuveni veiktais ceļš km</th>
+            <th> Pārgājienu dienas</th>
+            <th> Dienas pilsētā </th>
+            <th> Brīvās dienas </th>
+            <th> Dienas ceļā </th>
+        </tr>
+        <tr>
+            <td>Rysy</td>
+            <td>1200 km</td>
+            <td>3</td>
+            <td>1</td>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>Badgastein</td>
+            <td>1800 km</td>
+            <td>2</td>
+            <td> 2</td>
+            <td> 2</td>
+            <td> 4</td>
+        </tr>
+        <tr>
+            <td>Großglokner</td>
+            <td>1900 km</td>
+            <td>3</td>
+            <td> 1</td>
+            <td> 2</td>
+            <td> 4</td>
+        </tr>
+    </table>
+    <!--Tabulas un konteinera beigas-->
+</div>
+
+   <!--Krāsas konteinera un kontakinformācijas konteinera sākums-->
+   <div class="containerkrasa1">
+    <div class="containerinfo1">
+  
+        <!--Logo ievade-->
+        <div style="text-align: left; font-size: 24px; padding-left: 20px; color: #00b300; -webkit-text-stroke: 2px #00b300;">
+            <i>HikeAroundTheWorld</i>
+        </div>
+
+        <!--Kontaktinformācijas ievade-->
+        <div class="kontakti" >
+            <div> <b> Kontakti:</b></div>
+            <div> E-pasts: luize.paksu@gmail.com </div>
+            <div> Tel: +371 98765432 </div>
+        </div>
+      
+        <!--Izvēlnes teksta ievade-->
+        <div class="izvelne" >
+            <div> <b> <u> Izvēlne</u></b></div>
+            <div> <u> Sākums</u></div>
+            <div> <u> Par mums</u></div>
+            <div> <u> Kontakti </u></div>
+    </div>
+    </div> <!--Konteineru beigas-->
+   </div>
+     
+   <!-- Autora un otrās krāsas konteiner sākums-->
+   <div class="containerkrasa2" >
+    <div class="autors" >
+        <!--Teksta ievade-->
+     <h6> Autore: Luīze Paksū </h6>
+    </div>
+   </div> <!--Konteineru beigas-->
+
+   <!-- JavaScript sākums-->
+<script>
+    // Bilžu slaida funkcija, ka var ar bultiņām mainīt attēlu
+    const bilde5 = document.getElementById("bilde5");
+    const aplisi = [document.querySelector(".aplitis1"), document.querySelector(".aplitis2"), document.querySelector(".aplitis3")];
+    // Bilžu linku pievienošana
+    const atteli = [
+      "https://images.unsplash.com/photo-1511497584788-876760111969?fm=jpg&q=60&w=3000",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?fm=jpg&q=60&w=3000",
+      "https://t3.ftcdn.net/jpg/02/87/82/32/360_F_287823203_FwFCWMRjLs8pDdWN1z3rVQ3EKOeQXDzc.jpg"
+    ];
+    let indekss = 0;
+     // Funkcijas uzstādīšana
+    function nakamaisatt(index) {
+      bilde5.src = atteli[index];
+      aplisi.forEach((aplis, i) => {
+        aplis.style.backgroundColor = i === index ? "black" : "white";
+      });
+    }
+    // Funkcija, lai labā bultiņa mainītu nākamo attēlu
+    document.querySelector(".bultina.labi").addEventListener("click", () => {
+      indekss = (indekss + 1) % atteli.length;
+      nakamaisatt(indekss);
+    });
+    //Funkcija, lai kreisā bultiņa rādītu iepriekšējo attēlu
+    document.querySelector(".bultina.kreisi").addEventListener("click", () => {
+      indekss = (indekss - 1 + atteli.length) % atteli.length;
+      nakamaisatt(indekss);
+    });
+   nakamaisatt(indekss);
+    // Funkcijas beigas
+   
+        //Funkcijas uzstādīšana, lai apakšā izvēlnē, uzspiežot uz "sākums", tiktu atgriezts lapas sākumā
+        const sakums = Array.from(document.querySelectorAll('.izvelne div')).find(el => el.textContent.trim() === "Sākums");
+        if (sakums) {
+            sakums.style.cursor = 'pointer';
+            sakums.addEventListener("click", function () {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            });
+        }
+    //Funkcijas beigas
+
+
+  </script>
+  <!-- Koda beigas, paldies par uzmanībuu.-->
+</body>
+</html>
