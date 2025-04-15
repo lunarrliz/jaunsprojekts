@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="lv">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Cilnes nosaukums -->
+        <title>Ielogoties mājaslapā</title>
+        <!-- CSS stila lapa -->
+        <style>
+            /* konteinera izmers, krasa un padding/margin */
+            .container {
+                max-width: 800px;
+            margin: 0 auto; 
+            padding-left: 20px;
+            padding-right: 0;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            background-color: white;
+           
+            }
+            /* pirma virsraksta teksta izmers */
+            h1 {
+                font-size: 35 px;
+            }
+            /* datu teksta līniju izmērs */
+            .dati {
+               line-height: 30px;
+            }
+            /* zaļās pogas izmers, nosacījumi, krāsa, rāmis un padding/margin */
+            .zala {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-left: 250px;
+            background-color: #99ff99;
+            color: black;
+            border: 2px solid #00b300; 
+            }
+            /* body krāsa */
+            body {
+                background-color: #b3ecff;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Konteinera sākums-->
+        <div class="container">
+            <!--Lietotāja datu ievades pieprasījums-->
+            <h1>Lūdzu ievadiet savu lietotājvārdu un paroli, lai piekļūtu pieteikšanās lapai.</h1>
+            <div class="dati">
+        <!--Ievades lauku uzstāde-->
+            <div style="text-align: left; margin-bottom: 15px;">
+            <label for="lietotajvards">Lietotājvārds:</label><br />
+        <input 
+            type="text" 
+            id="lietotajvards" 
+            placeholder="Ievadi savu lietotājvārdu"
+            style="width: 200px; height: 20px; font-size: 16px; padding: 5px;" />
+        </div>
+        <div style="text-align: left; margin-bottom: 15px;">
+            <label for="lietotajvards">Parole:</label><br />
+        <input 
+            type="password" 
+            id="parole" 
+            placeholder="Ievadi paroli"
+            style="width: 200px; height: 20px; font-size: 16px; padding: 5px;" />
+        </div> 
+        <button class="poga zala">Ieiet</button>
+    </div>
+ <!--JavaScript sākums-->
+    <script>
+     // Reģistrētie lietotāji un paroles
+        const lietotaji = [
+            { vards: "skolotaja", parole: "skolotaja123"},
+            { vards: "mamma", parole: "mamma123" },
+            { vards: "liela_masa", parole: "marta123" },
+            { vards: "luii", parole: "luii777" },
+            { vards: "daavis", parole: "daviso123" },
+            { vards: "opis", parole: "opis123" }
+        ];
+    
+        // Sistēma, kas ļauj piekļuvi tikai tad, ja lietotājvārds un parole ir pareiza
+        document.querySelector(".poga").addEventListener("click", function () {
+            const ievaditaisVards = document.getElementById("lietotajvards").value;
+            const ievaditaParole = document.getElementById("parole").value;
+    
+            const atrasts = lietotaji.find(u => u.vards === ievaditaisVards && u.parole === ievaditaParole);
+    
+            if (atrasts) {
+                localStorage.setItem("aktivsLietotajs", ievaditaisVards);
+                window.location.href = "pieteikumu-lapa.html";
+            } else {
+                alert("Nepareizs lietotājvārds vai parole!");
+            }
+        });
+    </script>
+    </body>
+</html>

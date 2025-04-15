@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--Cilnes nosaukums-->
+    <title>Pieteikumu lapa</title>
+   <!--CSS stila lapas sākums-->
+    <style>
+        /* konteinera izmeri, krasa un padding/margiin */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            padding-top: 20px;
+            padding-bottom: 30px;
+            background-color: white;
+        }
+        /* pirma virsraksta izmers, rāmis un padding/margin */
+        h1 {
+            font-size: 20px;
+            border: 2px solid black;
+            padding: 15px;
+            margin: 0;
+        }
+        /*otra visrraksta liniju augstums */
+        h2 {
+            line-height: 35px;
+        }
+        /* body krasa un fonts*/
+        body {
+            background-color: #99ff99;
+            font-family: Arial, sans-serif;
+        }
+        /* pirmas bildes izmers */
+        #bilde1 {
+            width: 300px;
+        }
+        /* otras bildes izmers */
+        #bilde2 {
+            width: 300px;
+        }
+        /* tresa visrraksta liniju augstums */
+        h3 {
+            line-height: 35px;
+        }
+        /* "Aprēķināt laiku" pogas izmers, teksta izmers, krasa, ramis un padding/margin */
+        .poga-laiks {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-left: 290px;
+            background-color: #99ff99;
+            color: black;
+            border: 2px solid #00b300; 
+            margin-top: 20px;
+        }
+        /*css stila lapas beigas */
+    </style>
+</head>
+<body>
+    <!--Konteinera sākums-->
+    <div class="container"> 
+        <!--Teksts, kas parāda, kurš lietotājs ir pieslēdzies-->
+        <h1>Tu esi pieslēdzies kā <span id="lietotajs-vards"></span>.</h1>
+        <!--Informācijas teksts-->
+        <h2> Sveicināts, mājas iemītniek! <br> </h2>
+       <h3> Lai atvieglotu ikdienas dzīvi, es esmu izveidojusi programmu, kas aprēķina mazgāšanas un žāvēšanas beigu laiku. <br>
+        Tādā veidā tu zināsi precīzu laiku, kad jāņem veļa ārā un varēsi ieplānot citus darbus.</h2>
+
+        <h4> Izvēlies veļasmašīnas režīmu lūdzu:</h3>
+            <!--Veļasmašīnas bilde-->
+        <img id="bilde1" src="https://media3.bsh-group.com/Product_Shots/5120x/21841049_WGG254FESN_PGA4_def.webp">
+
+        <!--Režīmu uzstāde: Veļasmašīnas režīmi-->
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="mixed" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="mixed" style="float: left;"> Mixed, laiks: ~ 1 stunda</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="white" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="white" style="float: left;"> White, laiks: ~ 2 stundas 35 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="cotton" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="cotton" style="float: left;"> Cotton, laiks: ~ 4 stundas 15 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="eco" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="eco" style="float: left;"> Eco, laiks: ~ 3 stundas 30 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="sport" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="sport" style="float: left;"> Sport, laiks: ~ 1 stunda 35 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="duvet" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="duvet" style="float: left;"> Duvet, laiks: ~ 1 stunda 30 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="steam" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="steam" style="float: left;"> Steam Refresh, laiks: ~ 20 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="rinse" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="rinse" style="float: left;"> Rinse & spin, laiks: ~ 55 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="rapid" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="rapid" style="float: left;"> Rapid 30°, laiks: ~ 30 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="twenty" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="twenty" style="float: left;"> 20°C, laiks: ~ 1 stunda 50 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="wool" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="wool" style="float: left;"> Wool, laiks: ~ 1 stunda 25 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="delicates" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="delicates" style="float: left;"> Delicates, laiks: ~ 1 stunda 10 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="synthetics" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="synthetics" style="float: left;"> Synthetics, laiks: ~ 2 stundas 55 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="checkbox" id="spin_and_drain" name="režīms" style="float: left; margin-right: 10px;">
+            <label for="spin_and_drain" style="float: left;"> Spin & drain, laiks: ~ 10 min </label> <br>
+        </div>
+
+     <!--Žāvētāja režīmi-->
+
+        <h5> Izvēlies žāvētāja režīmu lūdzu:</h5>
+        <img id="bilde2" src="https://www.reliant.co.uk/blog/wp-content/uploads/2023/10/Tumble-dryer.jpg">
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="mixed" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="mixed" style="float: left;"> Mixed, laiks: ~ 2 stundas 14 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="bed_linen" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="bed_linen" style="float: left;"> Bed linen, laiks: ~ 3 stundas 48 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="shirts" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="shirts" style="float: left;"> Shirts, laiks: ~ 2 stundas 43 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="sport" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="sport" style="float: left;"> Sport, laiks: ~ 2 stundas 9 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="duvet" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="duvet" style="float: left;"> Duvet, laiks: ~ 5 stunda 13 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="jeans" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="jeans" style="float: left;"> Jeans, laiks: ~ 3 stundas 52 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="easy_ironing" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="easy_ironing" style="float: left;"> Easy ironing, laiks: ~ 36 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="refresh" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="refresh" style="float: left;">Refresh, laiks: ~ 20 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="rapid" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="rapid" style="float: left;"> Rapid 30°, laiks: ~ 30 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="coloured" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="coloured" style="float: left;"> Coloured, laiks: ~ 3 stunda 29 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="silk" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="silk" style="float: left;"> Silk, laiks: ~ 1 stunda 52 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="wool" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="wool" style="float: left;"> Wool, laiks: ~ 1 stunda 56 min</label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="delicates" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="delicates" style="float: left;"> Delicates, laiks: ~ 1 stunda 39 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="synthetics" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="synthetics" style="float: left;"> Synthetics, laiks: ~ 1 stunda 39 min </label> <br>
+        </div>
+
+        <div style="text-align: left; margin-bottom: 15px;">
+            <input type="radio" id="eco_cotton" name="režīms2" style="float: left; margin-right: 10px;">
+            <label for="eco_cotton" style="float: left;"> Eco cotton, laiks: ~ 3 stunda 14 min </label> <br>
+        </div>
+
+        <!--Aprēķināt laiku pogas uzstāde-->
+        <button class="poga poga-laiks" onclick="izpilditLaikaAprēķinu()">Aprēķināt laiku!</button>
+<input type="time" id="sakums"> 
+ <!--Beigu laika izvade-->
+<div id="beigas-laiks"></div> 
+
+        
+    </div>
+  <!--JavaScript sākums-->
+    <script>
+        const lietotajs = localStorage.getItem("aktivsLietotajs");
+    // Parāda pieslēgošos lietotāja vārdu
+        if (lietotajs) {
+            document.getElementById("lietotajs-vards").textContent = lietotajs;
+        } else {
+            window.location.href = "jaunais%20projekts.html"; 
+        }
+    // Režīmu laiki minūtēs
+        const laikuRežīmi = {
+            mixed: 60,
+            white: 155,
+            cotton: 255,
+            eco: 210,
+            sport: 95,
+            duvet: 90,
+            steam: 20,
+            rinse: 55,
+            rapid: 30,
+            twenty: 110,
+            wool: 85,
+            delicates: 70,
+            synthetics: 175,
+            spin_and_drain: 10,
+    
+            // žāvētāja režīmi
+            bed_linen: 228,
+            shirts: 163,
+            sport_dryer: 129,
+            duvet_dryer: 313,
+            jeans: 232,
+            easy_ironing: 36,
+            refresh: 20,
+            rapid_dryer: 30,
+            coloured: 209,
+            silk: 112,
+            wool_dryer: 116,
+            delicates_dryer: 99,
+            synthetics_dryer: 99,
+            eco_cotton: 194
+        };
+    //Funkcija, kas aprēķina laiku
+        function izpilditLaikaAprēķinu() {
+    const sakums = document.getElementById("sakums").value;
+    if (!sakums) {
+        alert("Lūdzu, ievadiet sākuma laiku.");
+        return;
+    }
+// Izvēlēto režīmu saskaitīšana
+    const selectedWash = document.querySelector('input[name="režīms"]:checked');
+    const selectedDry = document.querySelector('input[name="režīms2"]:checked');
+    const spinDrain = document.getElementById("spin_and_drain").checked;
+
+//Atbildes, ja prasības netiek izpildītas
+    if (!selectedWash) {
+        alert("Lūdzu, izvēlieties veļas režīmu.");
+        return;
+    }
+
+    if (!selectedDry) {
+        alert("Lūdzu, izvēlieties žāvētāja režīmu.");
+        return;
+    }
+
+    let washId = selectedWash.id;
+    let dryId = selectedDry.id;
+    if (["sport", "duvet", "rapid", "wool", "delicates", "synthetics"].includes(dryId)) {
+        dryId = dryId + "_dryer";
+    }
+
+    // Funkcija meklē laikus
+    let washTime = laikuRežīmi[washId] || 0;
+    let dryTime = laikuRežīmi[dryId] || 0;
+    let spinTime = spinDrain ? laikuRežīmi["spin_and_drain"] : 0;
+
+    const totalMinutes = washTime + dryTime + spinTime;
+
+    // Pārveido sākuma laiku
+    const [stunda, minute] = sakums.split(":").map(Number);
+    const sakumaLaiks = new Date();
+    sakumaLaiks.setHours(stunda, minute, 0);
+
+    // Saskaita iegūto laiku
+    sakumaLaiks.setMinutes(sakumaLaiks.getMinutes() + totalMinutes);
+
+    //Iegūtā laika izvade
+    const beiguLaiks = sakumaLaiks.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+    document.getElementById("beigas-laiks").innerHTML = `<h3>Veļa būs gatava ap: <strong>${beiguLaiks}</strong></h3>`;
+}
+    </script>
+</body>
+</html>
